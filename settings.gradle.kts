@@ -1,12 +1,6 @@
 pluginManagement {
   repositories {
-    google {
-      content {
-        includeGroupByRegex("com\\.android.*")
-        includeGroupByRegex("com\\.google.*")
-        includeGroupByRegex("androidx.*")
-      }
-    }
+    google()        // ← content filter ဖြုတ်
     mavenCentral()
     gradlePluginPortal()
   }
@@ -22,6 +16,6 @@ dependencyResolutionManagement {
   }
 }
 
-rootProject.name = "My Application"
+rootProject.name = "Galaxy Tunnel Next"  // ← app name နဲ့ ကိုက်အောင်
 
 include(":app")
