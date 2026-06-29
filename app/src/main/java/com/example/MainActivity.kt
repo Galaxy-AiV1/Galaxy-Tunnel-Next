@@ -29,7 +29,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.ui.theme.MyApplicationTheme
 import kotlinx.coroutines.launch
-import com.v2ray.ang.service.V2RayService 
+import com.example.V2RayService 
 
 class MainActivity : ComponentActivity() {
 
