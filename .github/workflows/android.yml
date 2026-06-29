@@ -1,0 +1,36 @@
+name: Galaxy Tunnel APK Builder
+
+on:
+  push:
+    branches: [ "main", "master" ] # သင့် GitHub ရဲ့ မူရင်း Branch နာမည်
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: gradle
+
+    - name: Grant Execute Permission for Gradle
+      run: chmod +x gradlew
+
+    # 💡 အရေးကြီးဆုံးအဆင့်: သင့်ရဲ့ ဒီတိုင်း Build လိုက်မည့် Debug APK ကို ဆောက်ခိုင်းခြင်း
+    - name: Build Debug APK
+      run: ./gradlew assembleDebug
+
+    # 💡 Build ပြီးသွားသော APK ဖိုင်အား ဒေါင်းလုဒ်ဆွဲနိုင်အောင် GitHub ပေါ် တင်ပေးခြင်း
+    - name: Upload APK Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: Galaxy-Tunnel-Debug-APK
+        path: app/build/outputs/apk/debug/app-debug.apk
