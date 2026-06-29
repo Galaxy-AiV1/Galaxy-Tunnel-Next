@@ -8,7 +8,8 @@ plugins {
 
 android {
   namespace = "com.example"
-  compileSdk 36
+  compileSdk = 36
+
 
   defaultConfig {
     applicationId = "com.aistudio.galaxytunnel.vjrmqx"
